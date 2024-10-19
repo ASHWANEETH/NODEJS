@@ -1,0 +1,4 @@
+writing file with fs
+ appending data
+ appending data
+ appending data
