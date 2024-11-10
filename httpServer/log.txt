@@ -23,3 +23,10 @@
 1731061168919 request recieved /favicon.ico 
 1731061344946 request recieved / and username = janu 
 1731061381381 request recieved / and username = ed shreen 
+1731237056459 request recieved / and username = undefined 
+1731237083257 request recieved / and username = janu 
+1731239455308 request recieved GET / and username = janu 
+1731239462082 request recieved GET / and username = janu 
+1731239840161 request recieved GET /about and username = undefined 
+1731239851809 request recieved GET / and username = janu 
+1731239860308 request recieved GET /about and username = janu 
