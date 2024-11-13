@@ -1,14 +1,19 @@
 const express = require("express");
-
+const fs = require("fs");
 const users = require("./MOCK_DATA.json")
 
 const app = express();
 const port = 8000;
 
+app.use(express.urlencoded({extended : false}));
 
 // app.get("/api/users/",(req,res)=>{}) if only one request method on route.. if more ->
 app.route("/api/users/").get((req,res)=>{
   return res.json(users);
+}).post((req,res)=>{
+    const body = req.body;
+    users.push({id:users.length+1,...body});
+    fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ return res.json({status:"sucess"})});
 })
 
 // :id -> dynamic route
