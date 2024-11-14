@@ -5,7 +5,21 @@ const users = require("./MOCK_DATA.json")
 const app = express();
 const port = 8000;
 
-app.use(express.urlencoded({extended : false}));
+
+//middlewares -------------------------------------------
+
+//middlewares functions that have acces to req and res obj and next middleware, can change req and res obj, can end req res cycle,..
+app.use(express.urlencoded({extended : false}));//built in
+
+app.use((req,res,next)=>{
+    fs.appendFile("log.txt",`"${req.method}" Req recieved at "${req.path}" at ${Date.now()} \n`,(err,data)=>{console.log("log updated!")});
+    next();
+})
+
+
+
+
+//ROUTES-----------------------------------------------
 
 // app.get("/api/users/",(req,res)=>{}) if only one request method on route.. if more ->
 app.route("/api/users/").get((req,res)=>{

@@ -1,0 +1,6 @@
+"GET" Req recieved at "/api/users" at 1731575941040 
+"GET" Req recieved at "/api/users" at 1731575943500 
+"POST" Req recieved at "/api/users" at 1731575956794 
+"GET" Req recieved at "/api/users/51" at 1731575963498 
+"PATCH" Req recieved at "/api/users/51" at 1731575979522 
+"DELETE" Req recieved at "/api/users/51" at 1731575988762 
