@@ -11,17 +11,31 @@ app.use(express.urlencoded({extended : false}));
 app.route("/api/users/").get((req,res)=>{
   return res.json(users);
 }).post((req,res)=>{
-    const body = req.body;
-    users.push({id:users.length+1,...body});
-    fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ return res.json({status:"sucess"})});
+  const body = req.body;
+  users.push({id:users.length+1,...body});
+  fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ return res.json({status:"sucess"})});
 })
 
 // :id -> dynamic route
-app.route("/api/users/:id").get((req,res)=>{
+app.route("/api/users/:id")
+
+.get((req,res)=>{
   const id = Number(req.params.id);
   const usr = users.find((users)=>users.id === id);
-  res.json(usr.first_name);
-  console.log(usr);
+  res.json(usr);
+})
+
+.patch((req,res)=>{
+  const body = req.body;
+  const id = Number(req.params.id);
+  users.find((users)=>users.id === id).first_name = body.first_name;
+  fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ return res.json({status:"sucess"})});
+})
+
+.delete((req,res)=>{
+  const id = Number(req.params.id);
+  users.splice(users.findIndex((users)=>users.id === id),1);
+  fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ return res.json({status:"sucess"})});
 })
 
 app.listen(port,()=>{
