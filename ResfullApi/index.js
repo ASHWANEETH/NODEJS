@@ -6,6 +6,23 @@ const app = express();
 const port = 8000;
 
 
+//http status codes-------------------------------->> https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+// Informational responses (100 – 199)
+// Successful responses (200 – 299)
+// Redirection messages (300 – 399)
+// Client error responses (400 – 499)
+// Server error responses (500 – 599)
+
+// 400 bad req --> incomplete req
+// 401 unauth
+// 403 forbidden
+// 404 :) not found
+
+
+
+
+
+
 //middlewares -------------------------------------------
 
 //middlewares functions that have acces to req and res obj and next middleware, can change req and res obj, can end req res cycle,..
@@ -33,7 +50,7 @@ app.route("/api/users/").get((req,res)=>{
 }).post((req,res)=>{
   const body = req.body;
   users.push({id:users.length+1,...body});
-  fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ return res.json({status:"sucess"})});
+  fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ return res.status(201).json({status:"sucess"})});
 })
 
 // :id -> dynamic route
