@@ -4,3 +4,5 @@
 "GET" Req recieved at "/api/users/51" at 1731575963498 
 "PATCH" Req recieved at "/api/users/51" at 1731575979522 
 "DELETE" Req recieved at "/api/users/51" at 1731575988762 
+"GET" Req recieved at "/api/users" at 1731577988285 
+"GET" Req recieved at "/api/users" at 1731578118953 

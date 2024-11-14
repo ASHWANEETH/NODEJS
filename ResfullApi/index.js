@@ -23,6 +23,12 @@ app.use((req,res,next)=>{
 
 // app.get("/api/users/",(req,res)=>{}) if only one request method on route.. if more ->
 app.route("/api/users/").get((req,res)=>{
+
+  //header --> contains meta-data(data about data) ,, both req and res :)
+  res.setHeader("X-MyName","Jhony"); // add X- prefix custom header (!best practise)
+  // console.log(req.headers); //print req headers
+
+
   return res.json(users);
 }).post((req,res)=>{
   const body = req.body;
