@@ -23,11 +23,16 @@ async function handleRedirect(req,res) {
   res.redirect(ent.redrUrl);
 }
 
-async function handleAnalytics(params) {
+async function handleAnalytics(req,res) {
+
+  const short = req.params.id;
+  const resObj = await URL.findOne({shortId:short});
+  res.status(200).send(`You visited this site ${resObj.visit} times !`)
   
 }
 
 module.exports={
   handleCreateShortId,
   handleRedirect,
+  handleAnalytics,
 }
