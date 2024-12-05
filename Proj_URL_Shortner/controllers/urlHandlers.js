@@ -27,7 +27,7 @@ async function handleAnalytics(req,res) {
 
   const short = req.params.id;
   const resObj = await URL.findOne({shortId:short});
-  res.status(200).send(`You visited this site ${resObj.visit} times !`)
+  res.status(200).send(`You visited site ${resObj.redrUrl} ${resObj.visit} times ! through ID:${resObj.shortId}`)
   
 }
 
